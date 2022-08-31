@@ -1,9 +1,9 @@
 /*
  * @Author: zcw
  * @Date: 2022-08-31 16:16:22
- * @LastEditTime: 2022-08-31 17:40:04
+ * @LastEditTime: 2022-08-31 23:26:32
  * @Description: In User Settings Edit
- * @FilePath: /flutter_panorama_app/lib/page/application.dart
+ * @FilePath: /flutter_panorama_project/lib/page/application.dart
  */
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -17,7 +17,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../common/values/values.dart';
 
-
 class ApplicationPage extends StatefulWidget {
   const ApplicationPage({Key? key}) : super(key: key);
 
@@ -26,7 +25,6 @@ class ApplicationPage extends StatefulWidget {
 }
 
 class _ApplicationPageState extends State<ApplicationPage> {
-
   int _currentPate = 0;
 
   final List<String> _tabTitles = [
@@ -37,10 +35,26 @@ class _ApplicationPageState extends State<ApplicationPage> {
   ];
 
   final List<Map<String, dynamic>> _tabs = [
-    {"title": "首页", "icon": "assets/images/tab/tab_home_default.png", "selectedIcon": "assets/images/tab/tab_home_selected.png"},
-    {"title": "全景管理", "icon": "assets/images/tab/tab_panoramaManage_default.png", "selectedIcon": "assets/images/tab/tab_panoramaManage_selected.png"},
-    {"title": "我的作品", "icon": "assets/images/tab/tab_myWorks_default.png", "selectedIcon": "assets/images/tab/tab_myWorks_selected.png"},
-    {"title": "个人中心", "icon": "assets/images/tab/tab_userCentre_default.png", "selectedIcon": "assets/images/tab/tab_userCentre_selected.png"},
+    {
+      "title": "首页",
+      "icon": "assets/images/tab/tab_home_default.png",
+      "selectedIcon": "assets/images/tab/tab_home_selected.png"
+    },
+    {
+      "title": "全景管理",
+      "icon": "assets/images/tab/tab_panoramaManage_default.png",
+      "selectedIcon": "assets/images/tab/tab_panoramaManage_selected.png"
+    },
+    {
+      "title": "我的作品",
+      "icon": "assets/images/tab/tab_myWorks_default.png",
+      "selectedIcon": "assets/images/tab/tab_myWorks_selected.png"
+    },
+    {
+      "title": "个人中心",
+      "icon": "assets/images/tab/tab_userCentre_default.png",
+      "selectedIcon": "assets/images/tab/tab_userCentre_selected.png"
+    },
   ];
 
   late PageController _pageController;
@@ -50,21 +64,29 @@ class _ApplicationPageState extends State<ApplicationPage> {
     return Scaffold(
       appBar: _buildAppBar(),
       body: _buildPageView(),
-      bottomNavigationBar: _buildBottomNavBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: _buildBottomAppBar(),
     );
   }
 
   // 顶部导航栏
   PreferredSizeWidget _buildAppBar() {
-    return  AppBar(
+    return AppBar(
         title: Text(
-          _tabTitles[_currentPate],
-          style: TextStyle(
-            color: AppColors.primaryBackground,
-            fontSize: AppFont.bigFontSize.sp,
-            fontWeight: FontWeight.w600,
-          ),
-        ));
+      _tabTitles[_currentPate],
+      style: TextStyle(
+        color: AppColors.primaryBackground,
+        fontSize: AppFont.bigFontSize.sp,
+        fontWeight: FontWeight.w600,
+      ),
+    ));
   }
 
   // 内容页
@@ -100,6 +122,86 @@ class _ApplicationPageState extends State<ApplicationPage> {
     );
   }
 
+  // 自定义底部导航栏
+  BottomAppBar _buildBottomAppBar() {
+    return BottomAppBar(
+      color: AppColors.primaryBackground,
+      elevation: 8,
+      notchMargin: 8,
+      shape: const CircularNotchedRectangle(),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: _createCustomBottomItems(),
+      ),
+    );
+  }
+
+  // *********** UI 创建 ***********
+  List<Widget> _createCustomBottomItems() {
+    List<Widget> bottomTabs = [];
+    for (var i = 0; i < _tabs.length; i++) {
+      var button = TextButton(
+        onPressed: () {
+          setState(() {
+            _currentPate = i;
+          });
+        },
+        style: ButtonStyle(
+          backgroundColor:
+              MaterialStateProperty.all<Color>(AppColors.primaryBackground),
+        ),
+        child: Container(
+          height: 49,
+          child: Center(
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 1,
+                ),
+                Image(
+                    width: 24,
+                    height: 24,
+                    image: _currentPate == i
+                        ? AssetImage(_tabs[i]["selectedIcon"])
+                        : AssetImage(_tabs[i]["icon"])),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  _tabs[i]["title"],
+                  style: TextStyle(
+                    fontSize: AppFont.explainFontSize.sp,
+                    color: _currentPate == i
+                        ? AppColors.primaryElement
+                        : AppColors.secondaryElement,
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      );
+      bottomTabs.add(button);
+    }
+    bottomTabs.insert(
+        2,
+        Container(
+          width: 50,
+          height: 49,
+        ));
+    return bottomTabs;
+
+    // final List<Widget> bottomTabs = _tabs.map((e) {
+    //   , child: child)
+    //   BottomNavigationBarItem(
+    //     icon: Image.asset(e["icon"]),
+    //     activeIcon: Image.asset(e["selectedIcon"]),
+    //     label: e["title"],
+    //     backgroundColor: AppColors.primaryBackground,
+    //   );
+    // }).toList();
+  }
+
   // *********** UI 创建 ***********
   List<BottomNavigationBarItem> _createBottomItems() {
     final List<BottomNavigationBarItem> bottomTabs = _tabs.map((e) {
@@ -118,7 +220,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
   void _handleNabBarTap(int index) {
     _pageController.jumpToPage(index);
     // _pageController.animateToPage(index,
-        // duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
+    // duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
   }
 
   // tab栏页码切换
