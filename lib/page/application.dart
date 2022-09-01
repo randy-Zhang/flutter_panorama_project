@@ -1,9 +1,9 @@
 /*
  * @Author: zcw
  * @Date: 2022-08-31 16:16:22
- * @LastEditTime: 2022-08-31 23:26:32
+ * @LastEditTime: 2022-09-01 14:15:34
  * @Description: In User Settings Edit
- * @FilePath: /flutter_panorama_project/lib/page/application.dart
+ * @FilePath: /flutter_panorama_app/lib/page/application.dart
  */
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -144,11 +144,11 @@ class _ApplicationPageState extends State<ApplicationPage> {
         onPressed: () {
           setState(() {
             _currentPate = i;
+            _handleNabBarTap(i);
           });
         },
-        style: ButtonStyle(
-          backgroundColor:
-              MaterialStateProperty.all<Color>(AppColors.primaryBackground),
+        style: TextButton.styleFrom(
+          backgroundColor: AppColors.primaryBackground,
         ),
         child: Container(
           height: 49,

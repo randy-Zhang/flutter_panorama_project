@@ -1,7 +1,7 @@
 /*
  * @Author: zcw
  * @Date: 2022-08-31 16:48:28
- * @LastEditTime: 2022-08-31 16:53:04
+ * @LastEditTime: 2022-09-01 15:05:45
  * @Description: In User Settings Edit
  * @FilePath: /flutter_panorama_app/lib/common/values/app_colors.dart
  */
@@ -12,7 +12,7 @@ class AppColors {
    /// 主背景 白色
   static const Color primaryBackground = Color.fromARGB(255, 250, 251, 255);
 
-  /// 主文本 灰色
+  /// 主文本 黑色
   static const Color primaryText = Color.fromARGB(255, 0, 0, 0);
 
   /// 主控件-背景 蓝色
@@ -26,7 +26,7 @@ class AppColors {
   /// 第二种控件-背景色 淡灰色
   static const Color secondaryElement = Color.fromARGB(255, 128, 128, 128);
 
-  /// 第二种控件-文本 浅蓝色
+  /// 第二种控件-文本 淡灰色
   static const Color secondaryElementText = Color.fromARGB(255, 128, 128, 128);
 
   // *****************************************
@@ -39,6 +39,6 @@ class AppColors {
 
   // *****************************************
 
-  /// tabBar 默认颜色 灰色
-  static const Color tabBarElement = Color.fromARGB(255, 208, 208, 208);
+  /// 分割线 默认颜色 灰色
+  static const Color dividerElement = Color.fromARGB(255, 204, 204, 204);
 }
