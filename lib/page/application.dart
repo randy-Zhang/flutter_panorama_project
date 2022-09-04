@@ -1,9 +1,9 @@
 /*
  * @Author: zcw
  * @Date: 2022-08-31 16:16:22
- * @LastEditTime: 2022-09-01 14:15:34
+ * @LastEditTime: 2022-09-04 11:58:37
  * @Description: In User Settings Edit
- * @FilePath: /flutter_panorama_app/lib/page/application.dart
+ * @FilePath: /flutter_panorama_project/lib/page/application.dart
  */
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -62,7 +62,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      // appBar: _buildAppBar(),
       body: _buildPageView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
