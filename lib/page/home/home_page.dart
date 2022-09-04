@@ -1,7 +1,7 @@
 /*
  * @Author: zcw
  * @Date: 2022-08-31 15:02:26
- * @LastEditTime: 2022-09-04 21:35:46
+ * @LastEditTime: 2022-09-04 21:57:30
  * @Description: In User Settings Edit
  * @FilePath: /flutter_panorama_project/lib/page/home/home_page.dart
  */
@@ -52,13 +52,18 @@ class _HomePageState extends State<HomePage> {
                         return Builder(
                           builder: (context) {
                             return Container(
-                                width: MediaQuery.of(context).size.width,
-                                // margin: EdgeInsets.symmetric(horizontal: 5.0),
-                                decoration: BoxDecoration(color: Colors.amber),
-                                child: Text(
-                                  'text $e',
-                                  style: TextStyle(fontSize: 16.0),
-                                ));
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                color: Colors.amber,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5.r)),
+                              ),
+                              clipBehavior: Clip.hardEdge,
+                              child: Image.network(
+                                "https://s2.loli.net/2022/09/04/F9gCsbuApjQJfO8.jpg",
+                                fit: BoxFit.cover,
+                              ),
+                            );
                           },
                         );
                       }).toList(),
@@ -66,6 +71,7 @@ class _HomePageState extends State<HomePage> {
                         aspectRatio: 2 / 1,
                         viewportFraction: 1,
                         height: 108.h,
+                        autoPlay: true,
                       )),
                   SizedBox(
                     height: 9.h,
