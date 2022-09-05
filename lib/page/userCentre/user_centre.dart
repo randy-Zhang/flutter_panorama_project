@@ -1,7 +1,7 @@
 /*
  * @Author: zcw
  * @Date: 2022-08-31 16:20:26
- * @LastEditTime: 2022-09-02 14:27:55
+ * @LastEditTime: 2022-09-05 13:39:30
  * @Description: In User Settings Edit
  * @FilePath: /flutter_panorama_app/lib/page/userCentre/user_centre.dart
  */
@@ -23,6 +23,7 @@ class _UserCentrePageState extends State<UserCentrePage> {
     return Container(
         child: Column(
       children: [
+        SizedBox(height: MediaQuery.of(context).padding.top,),
         SizedBox(
           width: 200.w,
           height: 46.h,

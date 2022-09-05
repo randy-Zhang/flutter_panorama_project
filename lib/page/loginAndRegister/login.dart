@@ -1,7 +1,7 @@
 /*
  * @Author: zcw
  * @Date: 2022-09-01 11:23:36
- * @LastEditTime: 2022-09-02 15:16:10
+ * @LastEditTime: 2022-09-05 13:53:51
  * @Description: In User Settings Edit
  * @FilePath: /flutter_panorama_app/lib/page/loginAndRegister/login.dart
  */
@@ -116,14 +116,14 @@ class _LoginPageState extends State<LoginPage> {
 
     //TODO: 接口请求
     _countTime = _allTimeOfGetCode;
-    _timer = Timer.periodic(Duration(seconds: 1), (t) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (t) {
       setState(() {
         _countTime--;
         if (_countTime == 0) {
           _timer.cancel();
         }
       });
-      debugPrint("倒计时：${_countTime}");
+      debugPrint("倒计时：$_countTime");
     });
   }
 
