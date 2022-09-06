@@ -1,9 +1,9 @@
 /*
  * @Author: zcw
  * @Date: 2022-09-01 11:23:36
- * @LastEditTime: 2022-09-05 13:53:51
+ * @LastEditTime: 2022-09-07 07:08:46
  * @Description: In User Settings Edit
- * @FilePath: /flutter_panorama_app/lib/page/loginAndRegister/login.dart
+ * @FilePath: /flutter_panorama_project/lib/page/loginAndRegister/login.dart
  */
 import 'dart:async';
 
@@ -546,7 +546,10 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 onTap: () {
-                  context.pushNamed(MyRouter.registerPage);
+                  context.pushNamed(MyRouter.registerPage,
+                      params: {"key": "动态参数", "state": "啊哈1"},
+                      queryParams: {"qureyKey": "查询参数"},
+                      extra: {"extra": "这是扩展参数"});
                 },
               ),
             ),
