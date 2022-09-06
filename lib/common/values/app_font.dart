@@ -1,7 +1,7 @@
 /*
  * @Author: zcw
  * @Date: 2022-08-31 17:08:28
- * @LastEditTime: 2022-09-01 16:10:03
+ * @LastEditTime: 2022-09-06 11:07:32
  * @Description: In User Settings Edit
  * @FilePath: /flutter_panorama_app/lib/common/values/app_font.dart
  */
