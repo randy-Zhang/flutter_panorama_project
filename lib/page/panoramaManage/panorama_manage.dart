@@ -221,7 +221,7 @@ class _PanoramaManagePageState extends State<PanoramaManagePage> {
                 child: InkWell(
                   onTap: () {},
                   child: Align(
-                    alignment: FractionalOffset(1, 0.2),
+                    alignment: const FractionalOffset(1, 0.2),
                     child: Image.asset("assets/images/home/home_more_icon.png"),
                   ),
                 ),

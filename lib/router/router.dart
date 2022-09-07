@@ -1,13 +1,13 @@
 /*
  * @Author: zcw
  * @Date: 2022-08-31 15:00:36
- * @LastEditTime: 2022-09-07 07:11:57
+ * @LastEditTime: 2022-09-07 14:41:02
  * @Description: In User Settings Edit
- * @FilePath: /flutter_panorama_project/lib/router/router.dart
+ * @FilePath: /flutter_panorama_app/lib/router/router.dart
  */
+
 import 'package:flutter/material.dart';
 import 'package:flutter_panorama_app/page/application.dart';
-import 'package:flutter_panorama_app/page/home/home_page.dart';
 import 'package:flutter_panorama_app/page/loginAndRegister/login.dart';
 import 'package:flutter_panorama_app/page/loginAndRegister/register.dart';
 import 'package:go_router/go_router.dart';
@@ -53,4 +53,4 @@ final GoRouter router = GoRouter(routes: <GoRoute>[
       // return const RegisterPage();
     },
   ),
-]);
+],);
